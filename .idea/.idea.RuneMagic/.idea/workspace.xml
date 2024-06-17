@@ -12,68 +12,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3734c7f-b600-460e-9e5a-151ec79b0dec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Factory/SimpleFactory.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Factory/W_FactoryWidget.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Interact/BPI_PlayerInteractable.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Interact/BP_FloatingInteractMarker.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/BPI_HasInventory.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/BP_InventoryComponent.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/BP_InventoryMacroLibrary.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/BP_InventoryWidgetManager.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/BP_Item_EarthRune.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/BP_Item_FireRune.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/S_OpenWidget.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/Widgets/W_Inventory.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inventory/Widgets/W_InventoryItem.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/MyContent/BPI_TopDownController.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/MyContent/BP_TestActor.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Rune/ItemType.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/fire_rune.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/rock_rune.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Util/BP_ObjectMacroLibrary.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Util/BP_UtilFunctionLibrary.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Widgets/W_FloatingInteract.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Widgets/W_PlayerInventory.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic.Target.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryBPFunctionLibrary.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryBPFunctionLibrary.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryComponent.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryComponent.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryOwner.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryType.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryWidgetManager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryWidgetManager.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/Item.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/Item.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemStack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/RuneMagic.Build.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/RuneMagic.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/RuneMagic.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/TestActor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/TestActor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RuneMagicEditor.Target.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/IA_Escape.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/IA_Interact.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/IA_Move.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/IA_ToggleInventory.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/IMC_DefaultPlayer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Widgets/BP_ItemButtonStyle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Widgets/W_BaseCanvas.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Widgets/W_FactoryWidget.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Widgets/W_Item.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Widgets/W_ItemButton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Widgets/W_ItemContainer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemClickType.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemContainerWidget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemContainerWidget.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/RuneMagic/Log.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RuneMagic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RuneMagic/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AdvancedLocomotionV4/Levels/ALS_DemoLevel.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AdvancedLocomotionV4/Levels/ALS_DemoLevel.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Item/ItemType.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Item/S_Item.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MyContent/BPI_TopDownCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MyContent/BPI_TopDownCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AdvancedLocomotionV4/Blueprints/CharacterLogic/ALS_Base_CharacterBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AdvancedLocomotionV4/Blueprints/CharacterLogic/ALS_Base_CharacterBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Factory/SimpleFactory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Factory/SimpleFactory.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Factory/W_FactoryWidget.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Inventory/BP_InventoryComponent.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Inventory/Widgets/W_Inventory.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Inventory/Widgets/W_InventoryItem.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/MyContent/BP_TopDownCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MyContent/BP_TopDownCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/MyContent/BP_TopDownController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MyContent/BP_TopDownController.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/MyContent/Test_Level.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MyContent/Test_Level.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Rune/RuneType.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Rune/RuneType.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Spellbuilder/W_Rune.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Spellbuilder/W_Rune.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Widgets/W_PlayerInventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Widgets/W_PlayerInventory.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/CachedAssetRegistry_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/CachedAssetRegistry_0.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RuneMagic.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/RuneMagic.uproject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/AutoScreenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/AutoScreenshot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Autosaves/PackageRestoreData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/PackageRestoreData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-7D2FA548496C9B3CE2EAAD892C2DEEC9/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-BFA34DC045369974DA15DDB8B55DB134/CrashReportClient.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/RuneMagic-backup-2024.06.05-17.28.24.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/RuneMagic-backup-2024.06.06-16.51.35.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Logs/RuneMagic.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/RuneMagic.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Telemetry/Telemetry.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Telemetry/Telemetry.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryBPFunctionLibrary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryBPFunctionLibrary.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryBPFunctionLibrary.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryBPFunctionLibrary.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemContainerComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemContainerComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryOwner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryOwner.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryOwnerWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryOwnerWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryOwnerWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryOwnerWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryWidgetManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryWidgetManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryWidgetManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/InventoryWidgetManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemStack.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/Items/ItemStack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RuneMagic/RuneMagic.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RuneMagic/RuneMagic.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +70,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.40.33807/include/utility" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RuneMagic/Definitions.RuneMagic.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/RuneMagic/Items/Item.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/RuneMagic/Items/Item.h" root0="FORCE_HIGHLIGHTING" />
@@ -99,6 +86,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -108,6 +96,7 @@
     &quot;C++ Project.RuneMagic.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -392,8 +381,22 @@
       <updated>1718042555127</updated>
       <workItem from="1718042557982" duration="14511000" />
       <workItem from="1718105374350" duration="16999000" />
-      <workItem from="1718186456707" duration="7357000" />
+      <workItem from="1718186456707" duration="25415000" />
+      <workItem from="1718266647302" duration="1647000" />
+      <workItem from="1718268343263" duration="9608000" />
+      <workItem from="1718369395362" duration="1432000" />
+      <workItem from="1718476049046" duration="5255000" />
+      <workItem from="1718644812553" duration="8321000" />
     </task>
+    <task id="LOCAL-00001" summary="before creating InventoryOwnerWidget">
+      <option name="closed" value="true" />
+      <created>1718196854389</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718196854389</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,5 +407,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="before creating InventoryOwnerWidget" />
+    <option name="LAST_COMMIT_MESSAGE" value="before creating InventoryOwnerWidget" />
   </component>
 </project>

@@ -16,8 +16,8 @@ struct RUNEMAGIC_API FItemStack
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, Category=Item)
-	UItem* ItemType;
+	UItem* ItemType = nullptr;
 
 	UPROPERTY(BlueprintReadWrite, Category=Item)
-	int32 Count;
+	int32 Count = 0;
 };

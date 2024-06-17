@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Item.h"
+#include "ItemContainerComponent.h"
 #include "ItemStack.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "InventoryBPFunctionLibrary.generated.h"
@@ -22,4 +23,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category=Items)
 	static FString ItemStackDisplayName(FItemStack ItemStack);
+
+	/** Calculates the missing number of items until the stack is full in the specified inventory */
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category=Items)
+	static int32 RoomInStack(UItemContainerComponent* Inventory, const FItemStack ItemStack);
 };
