@@ -3,7 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ItemStack.h"
+#include "RuneMagic/Items/Item.h"
+#include "RuneMagic/Items/ItemStack.h"
 #include "Components/ActorComponent.h"
 #include "ItemContainerComponent.generated.h"
 

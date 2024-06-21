@@ -1,5 +1,6 @@
 #include "ItemContainerComponent.h"
-
+#include "RuneMagic/Items/Item.h"
+#include "RuneMagic/Items/ItemStack.h"
 #include "RuneMagic/Log.h"
 
 UItemContainerComponent::UItemContainerComponent()

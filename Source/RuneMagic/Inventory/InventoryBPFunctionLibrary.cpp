@@ -1,4 +1,5 @@
 #include "InventoryBPFunctionLibrary.h"
+#include "RuneMagic/Items/ItemStack.h"
 
 void UInventoryBPFunctionLibrary::CreateItemStackFromClass(TSubclassOf<UItem> ItemClass, int32 Count,
                                                            FItemStack& ItemStack)

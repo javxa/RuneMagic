@@ -3,9 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Item.h"
+#include "RuneMagic/Items/Item.h"
 #include "ItemContainerComponent.h"
-#include "ItemStack.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "InventoryBPFunctionLibrary.generated.h"
 

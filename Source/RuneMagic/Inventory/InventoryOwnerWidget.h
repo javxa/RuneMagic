@@ -7,7 +7,6 @@
 #include "InventoryWidgetManager.h"
 #include "ItemClickType.h"
 #include "ItemContainerWidget.h"
-#include "Blueprint/UserWidget.h"
 #include "CommonActivatableWidget.h"
 #include "InventoryOwnerWidget.generated.h"
 

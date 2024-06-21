@@ -3,7 +3,8 @@
 #include "InventoryBPFunctionLibrary.h"
 #include "Blueprint/UserWidget.h"
 #include "InventoryOwnerWidget.h"
-#include "RuneMagic/Log.h"
+#include "RuneMagic/Items/Item.h"
+#include "RuneMagic/Items/ItemStack.h"
 
 UInventoryWidgetManager::UInventoryWidgetManager()
 {
