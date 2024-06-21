@@ -182,10 +182,7 @@ void UItemContainerComponent::SetItemAt(const int32 Index, const FItemStack Item
 {
 	if (!Items.IsValidIndex(Index))
 	{
-		if (GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 15, FColor::Red,
-			                                 FString::Printf(
-				                                 TEXT("InventoryComponent.SetItemAt Index out of bounds: %d"), Index));
+		ERROR("InventoryComponent.SetItemAt Index out of bounds: %d", Index);
 		return;
 	}
 

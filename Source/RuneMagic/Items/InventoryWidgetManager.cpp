@@ -90,8 +90,6 @@ bool UInventoryWidgetManager::IsTypeOpen(const EInventoryType Type) const
 
 void UInventoryWidgetManager::ItemClicked(UInventoryOwnerWidget* InWidget, UItemContainerComponent* Inventory, int32 ItemIndex, EItemClickType ClickType)
 {
-	DEBUG("Item click %d", ClickType);
-	
 	switch (ClickType)
 	{
 	case EItemClickType::TakeAll:
