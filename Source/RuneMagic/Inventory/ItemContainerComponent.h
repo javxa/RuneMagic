@@ -15,10 +15,18 @@ class RUNEMAGIC_API UItemContainerComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
-	// Sets default values for this component's properties
+public:
 	UItemContainerComponent();
 
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category=Inventory)
+	int32 Capacity;
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<FItemStack> Items;
+
+	UPROPERTY(BlueprintAssignable, Category=Inventory)
+	FOnInventoryUpdated OnInventoryUpdated;
+	
 	/** Returns the items that were unable to be added */
 	UFUNCTION(BlueprintCallable)
 	FItemStack AddItemStack(const FItemStack& ItemStack);
@@ -26,6 +34,9 @@ public:
 	/** Returns the items that were unable to be added */
 	UFUNCTION(BlueprintCallable)
 	FItemStack AddItems(UItem* Item, int32 Count);
+
+	UFUNCTION(BlueprintCallable)
+	void SetItemAt(int32 Index, FItemStack ItemStack);
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	bool ContainsItems(UItem* Item, int32 Amount);
@@ -37,23 +48,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	int32 Pull(UItem* Item, int32 Count);
 	
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category=Inventory)
-	int32 Capacity;
-	
-	UPROPERTY(BlueprintAssignable, Category=Inventory)
-	FOnInventoryUpdated OnInventoryUpdated;
-
-	UPROPERTY(BlueprintReadOnly)
-	TArray<FItemStack> Items;
-
-	UFUNCTION(BlueprintCallable, BlueprintPure)
-	virtual int32 GetStackSize(const UItem* Item);
-	
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FItemStack ItemAt(const int32 Index);
 
-	UFUNCTION(BlueprintCallable)
-	void SetItemAt(int32 Index, FItemStack ItemStack);
+	UFUNCTION(BlueprintCallable, BlueprintPure, BlueprintNativeEvent)
+	bool AcceptsItem(const UItem* Item);
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, BlueprintNativeEvent)
+	int32 GetStackSize(const UItem* Item);
 	
 protected:
 	// Called when the game starts

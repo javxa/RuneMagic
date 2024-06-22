@@ -39,6 +39,11 @@ FItemStack UItemContainerComponent::AddItems(UItem* Item, int32 Count)
 		return FItemStack();
 	}
 
+	if (!AcceptsItem(Item))
+		return {Item, Count};
+
+	const int32 StackSize = GetStackSize(Item);
+	
 	// Outer loop to first fill existing slots, only after can we fill empty slots
 	for (int32 fill_empty = 0; fill_empty <= 1; fill_empty++)
 	{
@@ -51,7 +56,7 @@ FItemStack UItemContainerComponent::AddItems(UItem* Item, int32 Count)
 				break;
 
 			FItemStack& It = Items[i];
-
+			
 			if (It.Count)
 			{
 				// Slot is not empty
@@ -59,7 +64,7 @@ FItemStack UItemContainerComponent::AddItems(UItem* Item, int32 Count)
 				if (!Item->Equals(It.ItemType))
 					continue;
 
-				const int32 Missing = Item->StackSize - It.Count;
+				const int32 Missing = std::max(0, StackSize - It.Count);
 				const int32 ToAdd = std::min(Missing, Count);
 
 				Count -= ToAdd;
@@ -72,7 +77,7 @@ FItemStack UItemContainerComponent::AddItems(UItem* Item, int32 Count)
 				continue;
 
 			// Place new stack
-			const int32 ToAdd = std::min(Count, Item->StackSize);
+			const int32 ToAdd = std::min(Count, StackSize);
 			Count -= ToAdd;
 
 			const FItemStack NewStack = {Item, ToAdd};
@@ -163,10 +168,16 @@ int32 UItemContainerComponent::Pull(UItem* Item, int32 Count)
 	return Pulled;
 }
 
-int32 UItemContainerComponent::GetStackSize(const UItem* Item)
+int32 UItemContainerComponent::GetStackSize_Implementation(const UItem* Item)
 {
 	return Item->StackSize;
 }
+
+bool UItemContainerComponent::AcceptsItem_Implementation(const UItem* Item)
+{
+	return true;
+}
+
 
 FItemStack UItemContainerComponent::ItemAt(const int32 Index)
 {

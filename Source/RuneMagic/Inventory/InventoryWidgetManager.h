@@ -71,6 +71,12 @@ private:
 	void TakePlaceItem(UInventoryOwnerWidget* InWidget, UItemContainerComponent* Inventory, int32 ItemIndex, EItemClickType ClickType);
 
 	UFUNCTION()
+	bool SwitchItemsSafe(UItemContainerComponent* ContainerA, int32 IndexA, UItemContainerComponent* ContainerB, int32 IndexB);
+
+	UFUNCTION()
+	bool MoveItemsSafe(UItemContainerComponent* ContainerFrom, int32 IndexFrom, UItemContainerComponent* ContainerTo, int32 IndexTo, int32 Count);
+
+	UFUNCTION()
 	UItemContainerComponent* FindOpenTargetInventory(UInventoryOwnerWidget* InWidget, UItemContainerComponent* SourceInventory) const;
 };
 

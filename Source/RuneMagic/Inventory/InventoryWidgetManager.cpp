@@ -116,28 +116,23 @@ void UInventoryWidgetManager::TakePlaceItem(UInventoryOwnerWidget* InWidget, UIt
 {
 	if (!CursorContainer) return;
 	
-	FItemStack CursorItem = CursorContainer->ItemAt(0);
-	FItemStack InventoryItem = Inventory->ItemAt(ItemIndex);
+	const FItemStack CursorItem = CursorContainer->ItemAt(0);
+	const FItemStack InventoryItem = Inventory->ItemAt(ItemIndex);
 
 	if (!CursorItem.Count && !InventoryItem.Count)
 		return;
 	
 	if (ClickType == EItemClickType::TakeAll)
 	{
-		// Fill whole stack
+		// Place all
 		if (CursorItem.Count && InventoryItem.Count && CursorItem.ItemType->Equals(InventoryItem.ItemType))
 		{
-			const int32 PlaceCount = std::min(CursorItem.Count, UInventoryBPFunctionLibrary::RoomInStack(Inventory, InventoryItem));
-			if (PlaceCount == 0)
-				return;
-			Inventory->SetItemAt(ItemIndex, {InventoryItem.ItemType, InventoryItem.Count + PlaceCount});
-			CursorContainer->SetItemAt(0, {CursorItem.ItemType, CursorItem.Count - PlaceCount});
+			MoveItemsSafe(CursorContainer, 0, Inventory, ItemIndex, CursorItem.Count);
 			return;
 		}
-		
-		// Switch
-		Inventory->SetItemAt(ItemIndex, CursorItem);
-		CursorContainer->SetItemAt(0, InventoryItem);
+
+		// Take all / Switch
+		SwitchItemsSafe(Inventory, ItemIndex, CursorContainer, 0);
 		return;
 	}
 
@@ -145,35 +140,111 @@ void UInventoryWidgetManager::TakePlaceItem(UInventoryOwnerWidget* InWidget, UIt
 	if (!CursorItem.Count)
 	{
 		const int32 TakeAmount = std::max(1, InventoryItem.Count / 2);
-		Inventory->SetItemAt(ItemIndex, {InventoryItem.ItemType, InventoryItem.Count - TakeAmount});
-		CursorContainer->SetItemAt(0, {InventoryItem.ItemType, TakeAmount});
-		return;
-	}
-
-	int32 PlaceCount = std::min(1, CursorItem.Count);
-	
-	// Place one
-	if (!InventoryItem.Count)
-	{
-		Inventory->SetItemAt(ItemIndex, {CursorItem.ItemType, PlaceCount});
-		CursorContainer->SetItemAt(0, {CursorItem.ItemType, CursorItem.Count - PlaceCount});
+		MoveItemsSafe(Inventory, ItemIndex, CursorContainer, 0, TakeAmount);
 		return;
 	}
 	
-	// Fill one
-	if (CursorItem.ItemType->Equals(InventoryItem.ItemType))
+	const bool couldMove = MoveItemsSafe(CursorContainer, 0, Inventory, ItemIndex, 1);
+
+	if (!couldMove)
 	{
-		PlaceCount = std::min(PlaceCount, UInventoryBPFunctionLibrary::RoomInStack(Inventory, InventoryItem));
-		if (PlaceCount == 0)
-			return;
-		Inventory->SetItemAt(ItemIndex, {InventoryItem.ItemType, InventoryItem.Count + PlaceCount});
-		CursorContainer->SetItemAt(0, {CursorItem.ItemType, CursorItem.Count - PlaceCount});
-		return;
+		SwitchItemsSafe(Inventory, ItemIndex, CursorContainer, 0);
+	}
+}
+
+bool UInventoryWidgetManager::SwitchItemsSafe(UItemContainerComponent* ContainerA, int32 IndexA,
+	UItemContainerComponent* ContainerB, int32 IndexB)
+{
+	const FItemStack ItemA = ContainerA->ItemAt(IndexA);
+	const FItemStack ItemB = ContainerB->ItemAt(IndexB);
+
+	if (!ItemA.Count && !ItemB.Count)
+		return false;
+
+	// Simplify handling by delegating to safe move if one of the slots are empty
+	if (!ItemA.Count)
+		return MoveItemsSafe(ContainerB, IndexB, ContainerA, IndexA, ItemB.Count);
+
+	if (!ItemB.Count)
+		return MoveItemsSafe(ContainerA, IndexA, ContainerB, IndexB, ItemA.Count);
+
+	// There are items in both slots, make sure both inventories can store the other item
+	if (!ContainerB->AcceptsItem(ItemA.ItemType))
+		return false;
+	
+	if (ItemA.Count > ContainerB->GetStackSize(ItemA.ItemType))
+		return false;
+
+	if (!ContainerA->AcceptsItem(ItemB.ItemType))
+		return false;
+
+	if (ItemB.Count > ContainerA->GetStackSize(ItemB.ItemType))
+		return false;
+
+	// Everything is good to go, switch items
+	
+	ContainerB->SetItemAt(IndexB, ItemA);
+	ContainerA->SetItemAt(IndexA, ItemB);
+
+	return true;
+}
+
+bool UInventoryWidgetManager::MoveItemsSafe(UItemContainerComponent* ContainerFrom, int32 IndexFrom, UItemContainerComponent* ContainerTo, int32 IndexTo, int32 Count)
+{
+	if (!Count) return false;
+	
+	const FItemStack ItemFrom = ContainerFrom->ItemAt(IndexFrom);
+
+	if (!ItemFrom.Count)
+		return false;
+	
+	const FItemStack ItemTo = ContainerTo->ItemAt(IndexTo);
+	
+	int32 MoveAmount = std::min(ItemFrom.Count, Count);
+
+	if (!ItemTo.Count)
+	{
+		if (!ContainerTo->AcceptsItem(ItemFrom.ItemType))
+			return false;
+		
+		const int32 StackSize = ContainerTo->GetStackSize(ItemFrom.ItemType);
+		MoveAmount = std::min(MoveAmount, StackSize);
+
+		const int32 Left = ItemFrom.Count - MoveAmount;
+		ContainerTo->SetItemAt(IndexTo, {ItemFrom.ItemType, MoveAmount});
+
+		if (Left == 0)
+		{
+			ContainerFrom->SetItemAt(IndexFrom, {nullptr, Left});
+		} else
+		{
+			ContainerFrom->SetItemAt(IndexFrom, {ItemFrom.ItemType, Left});
+		}
+		
+		return true;
 	}
 
-	// Items not matching, switch (again)
-	Inventory->SetItemAt(ItemIndex, CursorItem);
-	CursorContainer->SetItemAt(0, InventoryItem);
+	if (!ItemTo.ItemType->Equals(ItemFrom.ItemType))
+		return false;
+
+	MoveAmount = std::min(MoveAmount, UInventoryBPFunctionLibrary::RoomInStack(ContainerTo, ItemTo));
+	
+	if (!MoveAmount)
+		return false;
+
+	ContainerTo->SetItemAt(IndexTo, {ItemFrom.ItemType, ItemTo.Count + MoveAmount});
+	const int32 Left = ItemFrom.Count - MoveAmount;
+	
+	if (Left == 0)
+	{
+		ContainerFrom->SetItemAt(IndexFrom, {nullptr, Left});
+	} else
+	{
+		ContainerFrom->SetItemAt(IndexFrom, {ItemFrom.ItemType, Left});
+	}
+	
+	return true;
+
 }
 
 void UInventoryWidgetManager::PullItem(UInventoryOwnerWidget* InWidget, UItemContainerComponent* Inventory, int32 ItemIndex, EItemClickType ClickType)
@@ -193,10 +264,8 @@ void UInventoryWidgetManager::PullItem(UInventoryOwnerWidget* InWidget, UItemCon
 	
 	if (Inventory == TargetInventory)
 		return;
-
-	const int32 StackSize = Inventory->GetStackSize(Item.ItemType);
-	const int32 SpaceInStack = std::max(0, StackSize - Item.Count);
-	const int32 MoveAmount = std::min(1, SpaceInStack);
+	
+	const int32 MoveAmount = std::min(1, UInventoryBPFunctionLibrary::RoomInStack(Inventory, Item));
 
 	if (MoveAmount == 0) return;
 	
@@ -231,8 +300,6 @@ void UInventoryWidgetManager::PushItem(UInventoryOwnerWidget* InWidget, UItemCon
 
 	Inventory->SetItemAt(ItemIndex, {Item.ItemType, Item.Count - AmountMoved});
 }
-
-
 
 UItemContainerComponent* UInventoryWidgetManager::FindOpenTargetInventory(UInventoryOwnerWidget* InWidget, UItemContainerComponent* SourceInventory) const
 {
